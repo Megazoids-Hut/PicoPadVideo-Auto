@@ -69,7 +69,7 @@ ffmpeg -i input.mp4 -vf "framerate=fps=10,crop='min(iw,ih*4/3)':'min(ih,iw*3/4)'
 
 ```batch
 mkdir BMP
-ffmpeg -i input.mp4 -i palette.png -filter_complex "[0:v]framerate=fps=10,crop='min(iw,ih*4/3)':'min(ih,iw*3/4)',scale=160:240:flags=lanczos,vflip[v];[v][1:v]paletteuse=dither=sierra2_4a" -r 10 -start_number 0 "BMP\%06d.bmp"
+ffmpeg -i input.mp4 -i palette.png -filter_complex "[0:v]framerate=fps=10,crop='min(iw,ih*4/3)':'min(ih,iw*3/4)',scale=160:240:flags=lanczos[v];[v][1:v]paletteuse=dither=sierra2_4a" -r 10 -start_number 0 "BMP\%06d.bmp"
 ```
 
 ### Step 3: Export audio

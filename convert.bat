@@ -98,7 +98,7 @@ echo [OK] Palette saved
 :: ---------------------------------------------------------------
 echo [STEP 2/4] Exporting paletted BMP frames...
 :: ---------------------------------------------------------------
-ffmpeg %FFMPEG_OPTS% %TRIM% -i "%INPUT%" -i "%PALETTE%" -filter_complex "[0:v]framerate=fps=10,crop='min(iw\,ih*%CROP_RATIO%)':'min(ih\,iw*%CROP_RATIO_INV%)',scale=160:240:flags=lanczos,vflip[v];[v][1:v]paletteuse=dither=sierra2_4a" -r 10 -start_number 0 "%BMPDIR%\%%06d.bmp"
+ffmpeg %FFMPEG_OPTS% %TRIM% -i "%INPUT%" -i "%PALETTE%" -filter_complex "[0:v]framerate=fps=10,crop='min(iw\,ih*%CROP_RATIO%)':'min(ih\,iw*%CROP_RATIO_INV%)',scale=160:240:flags=lanczos[v];[v][1:v]paletteuse=dither=sierra2_4a" -r 10 -start_number 0 "%BMPDIR%\%%06d.bmp"
 dir /b "%BMPDIR%\*.bmp" >nul 2>nul
 if errorlevel 1 (
     echo [FAIL] BMP export failed - no BMP files created
