@@ -7,7 +7,7 @@ The output format (`VIDEO.VID`) contains interleaved video frames (160×240 pixe
 ## Requirements
 
 - `ffmpeg.exe` in this directory or in your system `PATH`  
-  *(download from [ffmpeg.org](https://ffmpeg.org/download.html)*
+  *(download from [ffmpeg.org](https://ffmpeg.org/download.html))*
 - `PicoPadVideo.exe` — the executable from the [PicoLibSDK](https://github.com/Panda381/PicoLibSDK/tree/main/_tools/PicoPadVideo)
 - A source video file (e.g. `myvideo.mp4`)
 
