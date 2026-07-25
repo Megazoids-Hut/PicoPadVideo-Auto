@@ -1,12 +1,12 @@
-# PicoPad Video Converter
+# PicoPad Video Converter Auto
 
-Converts video to PicoPad/DemoVGA format for Raspberry Pi Pico RP2040/RP2350.
+This is an automatic bat file script that converts MP4 video for use with the PicoPadSDK video player (for Raspberry Pi Pico RP2040 & RP2350). This script uses a modfiled version of PicoPadVideo.exe.
 
 The output format (`VIDEO.VID`) contains interleaved video frames (160×240 pixels, 256 colors) and synchronized audio (8-bit mono 22050 Hz PCM).
 
 ## Simplified Workflow (using ffmpeg — recommended)
 
-This workflow replaces the original manual steps using **XMedia Recode**, **VirtualDub**, and **Photoshop**. You only need [ffmpeg](https://ffmpeg.org/download.html) and the compiled `PicoPadVideo.exe`.
+This workflow replaces the [original manual steps](https://github.com/Panda381/PicoLibSDK/blob/main/_tools/PicoPadVideo/Readme.txt) using **XMedia Recode**, **VirtualDub**, and **Photoshop**. You only need [ffmpeg](https://ffmpeg.org/download.html) and the compiled `PicoPadVideo.exe`.
 
 ### Requirements
 
@@ -77,7 +77,7 @@ Pipe mode reads BMP frames from stdin and produces `VIDEO.VID` directly.
 
 ## Legacy Workflow
 
-If you prefer the original manual method using XMedia Recode, VirtualDub, and Photoshop, see the included `Readme.txt` file.
+If you prefer the original manual method using XMedia Recode, VirtualDub, and Photoshop, see the [original](https://github.com/Panda381/PicoLibSDK/blob/main/_tools/PicoPadVideo/]
 
 ## Output Format
 
@@ -104,3 +104,12 @@ Open `PicoPadVideo.sln` in Visual Studio and build. The project is a simple cons
 | `Readme.md` | This file |
 | `Readme.txt` | Legacy text readme |
 | `.gitignore` | Git ignore rules |
+
+## Sources and additional info
+
+This project was coded by Kimi K2.7 code (Ai) via [Freebuff](https://freebuff.com) based on an idea I thought was possible (to do most stages via ffmpeg). The original PicoPadVideo.exe was written by Miroslav Nemecek (Panda381) and is available on his PicoPadSDK under [_tools/PicoPadVideo](https://github.com/Panda381/PicoLibSDK/tree/main/_tools/PicoPadVideo).
+
+PicoPadVideo.cpp has been modified. The changes were:
+1. Pipe mode — added a  -pipe  command-line argument so it can read raw BMP data from an  ffmpeg  pipe
+2. Refactored BMP reading — pulled the BMP parsing into a  read_and_process_bmp()  function used by both file mode and pipe mode
+3. BMP boundary-safe reading — reads the 14-byte BMP header first, gets the exact file size, then reads the rest, so pipe mode doesn't accidentally cross frame boundaries
