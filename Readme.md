@@ -7,8 +7,8 @@ The output format (`VIDEO.VID`) contains interleaved video frames (160×240 pixe
 ## Requirements
 
 - `ffmpeg.exe` in this directory or in your system `PATH`  
-  *(download from [ffmpeg.org](https://ffmpeg.org/download.html) — do not commit it to Git)*
-- `PicoPadVideo.exe` — the original, unmodified executable from the [PicoLibSDK](https://github.com/Panda381/PicoLibSDK/tree/main/_tools/PicoPadVideo)
+  *(download from [ffmpeg.org](https://ffmpeg.org/download.html)*
+- `PicoPadVideo.exe` — the executable from the [PicoLibSDK](https://github.com/Panda381/PicoLibSDK/tree/main/_tools/PicoPadVideo)
 - A source video file (e.g. `myvideo.mp4`)
 
 ## Simplified Workflow (using ffmpeg)
@@ -94,29 +94,11 @@ The `VIDEO.VID` file contains for each frame:
 
 The final file can be renamed and used with PicoPad/DemoVGA firmware.
 
-## Building from source
-
-`PicoPadVideo.cpp` is the original source code. The simplest way to build it is to open `PicoPadVideo.sln` in Visual Studio and build the solution.
-
-Alternatively, from a Visual Studio Developer Command Prompt:
-
-```batch
-cl PicoPadVideo.cpp /FePicoPadVideo.exe
-```
-
-Or with MinGW:
-
-```batch
-g++ PicoPadVideo.cpp -o PicoPadVideo.exe
-```
 
 ## Files included
 
 | File | Description |
 |------|-------------|
-| `PicoPadVideo.cpp` | Source code for the converter |
-| `PicoPadVideo.sln` | Visual Studio solution |
-| `PicoPadVideo.vcproj` | Visual Studio project |
 | `convert.bat` | One-click ffmpeg-based conversion script |
 | `Readme.md` | This file |
 | `Readme.txt` | Plain-text readme |
@@ -126,7 +108,7 @@ g++ PicoPadVideo.cpp -o PicoPadVideo.exe
 
 The original `PicoPadVideo.exe` was written by Miroslav Nemecek (Panda381) and is available in his PicoLibSDK under [_tools/PicoPadVideo](https://github.com/Panda381/PicoLibSDK/tree/main/_tools/PicoPadVideo).
 
-The `convert.bat` script was created to automate the conversion pipeline using ffmpeg, avoiding the original manual tools.
+The `convert.bat` script was created to automate the conversion pipeline using ffmpeg, avoiding the original manual tools. My idea, but implemented using Kimi K2.7 code/Freebuff. Welcome to the future.
 
 ## Future improvements
 
