@@ -75,10 +75,6 @@ ffmpeg -i input.mp4 -i palette.png -filter_complex "[0:v]framerate=fps=10,scale=
 
 Pipe mode reads BMP frames from stdin and produces `VIDEO.VID` directly.
 
-## Legacy Workflow
-
-If you prefer the original manual method using XMedia Recode, VirtualDub, and Photoshop, see the [original](https://github.com/Panda381/PicoLibSDK/blob/main/_tools/PicoPadVideo/]
-
 ## Output Format
 
 The `VIDEO.VID` file contains for each frame:
