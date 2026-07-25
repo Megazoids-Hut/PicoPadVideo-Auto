@@ -1,0 +1,49 @@
+# Build outputs
+*.exe
+*.obj
+*.pdb
+*.ilk
+*.lib
+*.dll
+*.exp
+*.idb
+*.tlog
+*.lastbuildstate
+*.suo
+*.user
+*.aps
+*.pch
+*.res
+*.sdf
+*.opensdf
+*.cache
+*.log
+Debug/
+Release/
+x64/
+x86/
+.vs/
+
+# Generated intermediate files
+BMP/
+palette.png
+SOUND.wav
+PicoPadOutput.txt
+VIDEO.VID
+
+# Third-party binaries/tools (download separately)
+ffmpeg.exe
+ffmpeg.exe.*
+
+# Input/output media
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.wav
+*.vid
+*.VID
+
+# OS files
+Thumbs.db
+.DS_Store
